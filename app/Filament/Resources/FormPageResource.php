@@ -3,7 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\FormPageResource\Pages;
-use App\Filament\Resources\FormPageResource\RelationManagers;
+use App\Filament\Resources\FormPageResource\RelationManagers\FormFieldsRelationManager;
 use App\Models\FormPage;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -43,7 +43,7 @@ class FormPageResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            FormFieldsRelationManager::class,
         ];
     }
 
