@@ -8,6 +8,7 @@ use Filament\Resources\Pages\ListRecords;
 
 class ListOfficePages extends ListRecords
 {
+    protected static bool $shouldRegisterNavigation = false;
     protected static string $resource = OfficePageResource::class;
 
     protected function getHeaderActions(): array
@@ -16,4 +17,8 @@ class ListOfficePages extends ListRecords
             Actions\CreateAction::make(),
         ];
     }
+    public function mount(): void
+{
+    redirect(OfficePageResource::getUrl('edit'));
+}
 }

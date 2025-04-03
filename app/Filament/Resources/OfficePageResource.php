@@ -18,7 +18,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class OfficePageResource extends Resource
 {
     protected static ?string $model = OfficePage::class;
-
+    protected static ?string $navigationLabel = 'Home Page';
+    protected static ?string $modelLabel = 'Home Page';
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
@@ -61,9 +62,13 @@ class OfficePageResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListOfficePages::route('/'),
-            'create' => Pages\CreateOfficePage::route('/create'),
-            'edit' => Pages\EditOfficePage::route('/{record}/edit'),
+           'index' => Pages\ListOfficePages::route('/index'), // ✅ needed for internal references
+        'edit' => Pages\EditOfficePage::route('/'),        // ✅ this is your real edit screen
+
         ];
     }
+    public static function getNavigationUrl(): string
+{
+    return static::getUrl('edit');
+}
 }
