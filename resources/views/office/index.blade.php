@@ -1,10 +1,14 @@
+@php
+    $page = \App\Models\OfficePage::first();
+@endphp
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Old Town Church Office</title>
+    <title>{{ $page->title }}</title>
 </head>
 <body>
-    <h1>Welcome to the Office Portal</h1>
-    <p>This is where forms will be managed.</p>
+    <h1>{{ $page->title }}</h1>
+    <p>{{ $page->intro }}</p>
 </body>
 </html>
