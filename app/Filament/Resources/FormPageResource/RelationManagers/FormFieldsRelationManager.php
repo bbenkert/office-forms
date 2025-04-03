@@ -11,7 +11,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class FieldsRelationManager extends RelationManager
+class FormFieldsRelationManager extends RelationManager
 {
     protected static string $relationship = 'fields';
 
