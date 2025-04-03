@@ -33,9 +33,11 @@ class OfficePageResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([
-                //
-            ])
+        ->columns([
+            Tables\Columns\TextColumn::make('title')->label('Title')->searchable()->sortable(),
+            Tables\Columns\TextColumn::make('intro')->label('Intro')->limit(50),
+            Tables\Columns\TextColumn::make('updated_at')->label('Last Updated')->dateTime(),
+        ])
             ->filters([
                 //
             ])
